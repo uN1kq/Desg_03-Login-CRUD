@@ -1,8 +1,7 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
-def homepage_name(request):
-    return HttpResponse('HOME PAGE')
+def page_name(request):
+    return render(request, 'LoginPage/MainTemp.html')
 
-def secondpage_name(request):
-    return HttpResponse('SECOND PAGE')
+# def second(request):
+#     return render(request, 'proj_name/second.html')
