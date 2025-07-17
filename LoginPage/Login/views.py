@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from .forms import LoginForm, RegisterForm
 from .models import CustomUser
 
@@ -41,3 +41,11 @@ def LoginView(request):
     else:
         form = LoginForm()
     return render(request, 'LoginPage/login.html', {'form': form})
+
+# --- Logout View ---
+def LogoutView(request):
+    if request.method == 'POST':
+        logout(request)
+        messages.success(request, 'Logged out successfully!')
+        return redirect('login')
+    return redirect('home')
