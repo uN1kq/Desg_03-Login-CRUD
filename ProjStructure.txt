@@ -1,0 +1,29 @@
+LoginPage/
+├── LoginPage/
+│   └── settings.py, urls.py ...
+├── Login/
+│   └── views.py, forms.py, urls.py ...
+├── templates/
+│   └── Login/
+│       ├── login.html
+│       ├── register.html
+│       └── home.html
+
+
+
+Login Details:
+first_name – CharField
+last_name – CharField (optional)
+email – EmailField, unique if used for login
+mobile_number – CharField, with validation, unique if used for login
+date_of_birth – DateField (optional)
+gender – CharField or ChoiceField (optional)
+address – TextField (optional)
+profile_picture – ImageField (optional)
+is_active – BooleanField (to deactivate user)
+is_staff – BooleanField (for admin panel access)
+is_superuser – BooleanField (full access)
+last_login – DateTimeField (auto-updated)
+date_joined – DateTimeField (auto-created)
+otp_code – CharField (optional, for OTP login)
+captcha_passed – BooleanField (optional, or handled in session)

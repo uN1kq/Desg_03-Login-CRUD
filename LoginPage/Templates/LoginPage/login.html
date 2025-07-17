@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register</title>
+    <link rel="stylesheet" href="{% static 'LoginPage/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="left">
+            <h2>Welcome Back!</h2>
+            <p>To keep connected with us please<br>login with your personal info</p>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <span class="icon"><i class="fa fa-user"></i></span>
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <span class="icon"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit">SIGN IN</button>
+            </form>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" style="margin-top:20px;background:#e74c3c;">LOGOUT</button>
+            </form>
+        </div>
+        <div class="right">
+            <h2>Create Account</h2>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="or">or use your email for registration:</div>
+            <form method="post" action="{% url 'register' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <span class="icon"><i class="fa fa-user"></i></span>
+                    <input type="text" name="username" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <span class="icon"><i class="fa fa-envelope"></i></span>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <span class="icon"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="password1" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <span class="icon"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="password2" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit">SIGN UP</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{% static 'LoginPage/js/main.js' %}"></script>
+</body>
+</html>
